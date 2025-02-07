@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2A34EC792D54DE1500E8119F /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A34EC782D54DE1500E8119F /* GreetingView.swift */; };
+		2A5565F92D56698600D2E64B /* DashboardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565F82D56698600D2E64B /* DashboardRepository.swift */; };
+		2A5565FB2D566A8700D2E64B /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */; };
+		2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */; };
+		2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */; };
+		2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5566022D5674B300D2E64B /* DashboardView.swift */; };
 		2AF8BC932D55217C0078974B /* DSM in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF8BC922D55217C0078974B /* DSM */; };
 		3AC597562BF4D05C0092606C /* iOSDashboardAssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */; };
-		3AC597582BF4D05C0092606C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC597572BF4D05C0092606C /* ContentView.swift */; };
 		3AC5975A2BF4D05D0092606C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC597592BF4D05D0092606C /* Assets.xcassets */; };
 		3AC5975D2BF4D05D0092606C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5975C2BF4D05D0092606C /* Preview Assets.xcassets */; };
 		3AC597672BF4D1040092606C /* SampleData in Frameworks */ = {isa = PBXBuildFile; productRef = 3AC597662BF4D1040092606C /* SampleData */; };
@@ -18,10 +22,14 @@
 
 /* Begin PBXFileReference section */
 		2A34EC782D54DE1500E8119F /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		2A5565F82D56698600D2E64B /* DashboardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRepository.swift; sourceTree = "<group>"; };
+		2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsView.swift; sourceTree = "<group>"; };
+		2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsViewModel.swift; sourceTree = "<group>"; };
+		2A5566022D5674B300D2E64B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		2AF8BC912D5521080078974B /* DSM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DSM; sourceTree = "<group>"; };
 		3AC597522BF4D05C0092606C /* iOSDashboardAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDashboardAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDashboardAssessmentApp.swift; sourceTree = "<group>"; };
-		3AC597572BF4D05C0092606C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3AC597592BF4D05D0092606C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AC5975C2BF4D05D0092606C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3AC597642BF4D0B40092606C /* SampleData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SampleData; sourceTree = "<group>"; };
@@ -40,6 +48,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A5565FE2D566C3C00D2E64B /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				2A5566022D5674B300D2E64B /* DashboardView.swift */,
+				2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */,
+				2A5566012D56749C00D2E64B /* JobStats */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		2A5566012D56749C00D2E64B /* JobStats */ = {
+			isa = PBXGroup;
+			children = (
+				2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */,
+				2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */,
+			);
+			path = JobStats;
+			sourceTree = "<group>";
+		};
 		3AC597492BF4D05C0092606C = {
 			isa = PBXGroup;
 			children = (
@@ -62,11 +89,12 @@
 		3AC597542BF4D05C0092606C /* iOSDashboardAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				2A5565FE2D566C3C00D2E64B /* Dashboard */,
 				3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */,
 				2A34EC782D54DE1500E8119F /* GreetingView.swift */,
-				3AC597572BF4D05C0092606C /* ContentView.swift */,
 				3AC597592BF4D05D0092606C /* Assets.xcassets */,
 				3AC5975B2BF4D05D0092606C /* Preview Content */,
+				2A5565F82D56698600D2E64B /* DashboardRepository.swift */,
 			);
 			path = iOSDashboardAssessment;
 			sourceTree = "<group>";
@@ -162,7 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC597582BF4D05C0092606C /* ContentView.swift in Sources */,
+				2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */,
+				2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */,
+				2A5565F92D56698600D2E64B /* DashboardRepository.swift in Sources */,
+				2A5565FB2D566A8700D2E64B /* DashboardViewModel.swift in Sources */,
+				2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */,
 				2A34EC792D54DE1500E8119F /* GreetingView.swift in Sources */,
 				3AC597562BF4D05C0092606C /* iOSDashboardAssessmentApp.swift in Sources */,
 			);

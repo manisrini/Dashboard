@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import DSM
 
 @main
 struct iOSDashboardAssessmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardView()
+                .onAppear{
+                    FontHelper.registerFonts()
+                }
         }
     }
 }

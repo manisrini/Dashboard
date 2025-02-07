@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 public struct JobApiModel {
     public let id = UUID()
@@ -14,8 +15,30 @@ public struct JobApiModel {
     public let startTime: String
     public let endTime: String
     public let status: JobStatus
+    
+    public init(jobNumber: Int, title: String, startTime: String, endTime: String, status: JobStatus) {
+        self.jobNumber = jobNumber
+        self.title = title
+        self.startTime = startTime
+        self.endTime = endTime
+        self.status = status
+    }
 }
 
-public enum JobStatus: CaseIterable {
-    case yetToStart, inProgress, canceled, completed, incomplete
+public enum JobStatus: String,CaseIterable{
+    case yetToStart = "Yet to start",
+         inProgress = "In-Progress",
+         cancelled = "Cancelled",
+         completed = "Completed",
+         incomplete = "In-Complete"
+    
+    public var color: Color {
+        switch self {
+        case .yetToStart: return .purple
+        case .inProgress: return .blue
+        case .cancelled: return .yellow
+        case .completed: return .green
+        case .incomplete: return .red
+        }
+    }
 }
