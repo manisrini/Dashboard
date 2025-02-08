@@ -23,12 +23,11 @@ struct InvoiceStatsView: View {
             
             Divider()
             
-            HStack{
-                Text(viewModel.getTotalInvoiceAmountInfo())
-                Spacer()
-                Text(viewModel.getPaidAmountInfo())
-            }
-            
+            ProgressInfoView(
+                leftLabel: viewModel.getTotalInvoiceAmountInfo(),
+                rightLabel: viewModel.getPaidAmountInfo()
+            )
+           
             GeometryReader{ reader in
                 ProgressChartView(stats: viewModel.getStats(), totalWidth: reader.size.width)
             }

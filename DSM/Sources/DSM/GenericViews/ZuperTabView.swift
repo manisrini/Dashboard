@@ -11,8 +11,8 @@ public typealias selectedTabIndex = Int
 public typealias prevSelectedTabIndex = Int
 
 public struct ZTab: Hashable{
-    let id : UUID?
-    let title : String
+    public let id : UUID?
+    public let title : String
     
     public init(id: UUID?, title: String) {
         self.id = id
@@ -68,17 +68,17 @@ struct TabItem : View {
     
     var body: some View{
         VStack(spacing: 10){
-            ZuperText(name: tab.title,font: .Roboto(.Bold, 12))
+            ZuperText(name: tab.title,font: .Roboto(.Bold, 16))
                 .foregroundStyle(Color.white)
                 .padding(.horizontal,16)
             
             if isSelected{
                 Rectangle()
-                    .frame(width: 50,height: 3)
+                    .frame(height: 3)
                     .foregroundStyle(Color.black)
             }else{
                 Rectangle()
-                    .frame(width: 50,height: 3)
+                    .frame(height: 3)
                     .foregroundStyle(Color.gray)
             }
         }

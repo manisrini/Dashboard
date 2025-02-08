@@ -11,7 +11,7 @@ import SampleData
 
 struct JobsListView: View {
     
-    var viewModel : JobsListViewModel
+    @ObservedObject var viewModel : JobsListViewModel
     @State var selectedTabIndex = 0
     
     init(_ viewModel: JobsListViewModel) {
@@ -20,23 +20,47 @@ struct JobsListView: View {
     
     var body: some View {
         
-        
-        VStack{
-            ZuperTabView(tabs: viewModel.getTabs(), selectedIndex: $selectedTabIndex) { prevSelectedIndex, currentSelectedIndex in
-                print(prevSelectedIndex,currentSelectedIndex)
-            }
-            
-            ScrollView {
-                LazyVStack(alignment: .leading) {
-                    ForEach(viewModel.jobs,id: \.id) { job in
-                        Card(
-                            topLeftLabel: "#\(job.jobNumber)",
-                            middleLeftLabel: job.title,
-                            bottomLeftLabel: "\(job.startTime) - \(job.endTime)"
-                        )
+        NavigationStack{
+            VStack{
+                
+                JobStatsView(
+                    JobStatsViewModel(
+                        jobs: viewModel.jobs,
+                        showStatsInfo: false,
+                        showHeader: false
+                    )
+                )
+                    .padding()
+                
+                ZuperTabView(tabs: viewModel.getTabs(), selectedIndex: $selectedTabIndex) { prevSelectedIndex, currentSelectedIndex in
+                    if prevSelectedIndex != currentSelectedIndex{
+                        viewModel.updateSelectedStatus(for: currentSelectedIndex)
+                    }
+                }
+                
+                
+                if viewModel.isJobsEmptyForSelectedStatus(){
+                    Spacer()
+                    EmptyStateView()
+                    Spacer()
+                } else{
+                    ScrollView {
+                        LazyVStack(alignment: .leading) {
+                            ForEach(viewModel.getJobsForSelectedStatus(),id: \.id) { job in
+                                Card(
+                                    topLeftLabel: "#\(job.jobNumber)",
+                                    middleLeftLabel: job.title,
+                                    bottomLeftLabel: "\(job.startTime) - \(job.endTime)"
+                                )
+                                .roundedBorder(color: .gray)
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                            }
+                        }
                     }
                 }
             }
+            .zNavBar(viewModel.getNavBarTitle())
         }
     }
 }

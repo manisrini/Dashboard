@@ -31,6 +31,8 @@ public struct Card : View{
                 ZuperText(name: bottomLeftLabel,font: .Roboto(.Medium, 14))
             }
         }
+        .padding()
+        .frame(maxWidth: .infinity,alignment: .leading)
     }
 }
 

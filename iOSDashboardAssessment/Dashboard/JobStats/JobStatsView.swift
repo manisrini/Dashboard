@@ -19,22 +19,26 @@ struct JobStatsView: View {
     
     var body: some View {
         VStack(alignment: .leading,spacing: 10){
-            HeaderView(text: "Job Stats")
             
-            Divider()
-            
-            HStack{
-                Text(viewModel.getTotalJobsInfo())
-                Spacer()
-                Text(viewModel.getNumberOfCompletedJobs())
+            if viewModel.showHeader{
+                HeaderView(text: "Job Stats")
+                
+                Divider()
             }
+            
+            ProgressInfoView(
+                leftLabel: viewModel.getTotalJobsInfo(),
+                rightLabel: viewModel.getNumberOfCompletedJobs()
+            )
             
             GeometryReader{ reader in
                 ProgressChartView(stats: viewModel.getStats(), totalWidth: reader.size.width)
             }
             .frame(height: 20)
             
-            ChartInfoView(statData: viewModel.getStatsInfo())
+            if viewModel.showStatsInfo{
+                ChartInfoView(statData: viewModel.getStatsInfo())
+            }
         }
     }
 }

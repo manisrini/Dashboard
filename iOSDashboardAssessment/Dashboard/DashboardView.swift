@@ -21,15 +21,17 @@ struct DashboardView: View {
                     GreetingView(model: viewModel.greetingDetails)
                         .padding(.top,10)
                     
-                    JobStatsView(
-                        JobStatsViewModel(
-                            jobs: viewModel.jobsList
-                        )
-                    )
-                    .padding(20)
-                    .onTapGesture {
+                    Button {
                         didClickJobStats = true
+                    } label: {
+                        JobStatsView(
+                            JobStatsViewModel(
+                                jobs: viewModel.jobsList
+                            )
+                        )
+                        .padding(20)
                     }
+                    .buttonStyle(.plain)
                     .navigationDestination(isPresented: $didClickJobStats) {
                         JobsListView(JobsListViewModel(jobs: self.viewModel.jobsList))
                     }

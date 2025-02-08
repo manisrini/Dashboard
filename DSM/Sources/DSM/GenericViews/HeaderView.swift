@@ -15,8 +15,10 @@ public struct HeaderView: View {
     }
     
     public var body: some View {
-        Text(text)
-            .font(.Roboto(.Bold, size: 18))
+        ZuperText(
+            name: text,
+            font: .Roboto(.Bold, 18)
+        )
     }
 }
 

@@ -18,7 +18,7 @@ protocol DashboardRepository {
 class InMemoryDashboardRepository : DashboardRepository{
     
     func getJobsList() async throws -> [JobApiModel] {
-        return SampleData.generateRandomJobList(size: 10)
+        return SampleData.generateRandomJobList(size: 4)
     }
     
     func getInvoicesList() async throws -> [InvoiceApiModel] {

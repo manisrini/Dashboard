@@ -10,9 +10,13 @@ import CoreFoundation
 
 class JobStatsViewModel{
     let jobs : [JobApiModel]
+    let showStatsInfo : Bool
+    let showHeader : Bool
     
-    init(jobs: [JobApiModel]) {
+    init(jobs: [JobApiModel], showStatsInfo : Bool = true, showHeader : Bool = true) {
         self.jobs = jobs
+        self.showStatsInfo = showStatsInfo
+        self.showHeader = showHeader
     }
     
     func getTotalJobsInfo() -> String{

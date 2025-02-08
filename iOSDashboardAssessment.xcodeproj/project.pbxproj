@@ -13,6 +13,7 @@
 		2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */; };
 		2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */; };
 		2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5566022D5674B300D2E64B /* DashboardView.swift */; };
+		2A81AF5C2D57C892001300FB /* ProgressInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A81AF5B2D57C892001300FB /* ProgressInfoView.swift */; };
 		2AD64E272D57353800C8E484 /* InvoiceStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */; };
 		2AD64E292D57355600C8E484 /* InvoiceStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */; };
 		2AD64E672D575E9F00C8E484 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E662D575E9F00C8E484 /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 		2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsView.swift; sourceTree = "<group>"; };
 		2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsViewModel.swift; sourceTree = "<group>"; };
 		2A5566022D5674B300D2E64B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		2A81AF5B2D57C892001300FB /* ProgressInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressInfoView.swift; sourceTree = "<group>"; };
 		2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsView.swift; sourceTree = "<group>"; };
 		2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsViewModel.swift; sourceTree = "<group>"; };
 		2AD64E662D575E9F00C8E484 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,8 +65,10 @@
 			children = (
 				2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */,
 				2A5566022D5674B300D2E64B /* DashboardView.swift */,
+				2A34EC782D54DE1500E8119F /* GreetingView.swift */,
 				2AD64E252D57351F00C8E484 /* InvoiceStats */,
 				2A5566012D56749C00D2E64B /* JobStats */,
+				2A81AF5B2D57C892001300FB /* ProgressInfoView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -122,7 +126,6 @@
 				2A5565FE2D566C3C00D2E64B /* Dashboard */,
 				3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */,
 				2AD64E662D575E9F00C8E484 /* ContentView.swift */,
-				2A34EC782D54DE1500E8119F /* GreetingView.swift */,
 				3AC597592BF4D05D0092606C /* Assets.xcassets */,
 				3AC5975B2BF4D05D0092606C /* Preview Content */,
 				2A5565F82D56698600D2E64B /* DashboardRepository.swift */,
@@ -233,6 +236,7 @@
 				2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */,
 				2A34EC792D54DE1500E8119F /* GreetingView.swift in Sources */,
 				3AC597562BF4D05C0092606C /* iOSDashboardAssessmentApp.swift in Sources */,
+				2A81AF5C2D57C892001300FB /* ProgressInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
