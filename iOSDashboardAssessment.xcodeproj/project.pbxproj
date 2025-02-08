@@ -13,6 +13,8 @@
 		2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */; };
 		2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */; };
 		2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5566022D5674B300D2E64B /* DashboardView.swift */; };
+		2AD64E272D57353800C8E484 /* InvoiceStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */; };
+		2AD64E292D57355600C8E484 /* InvoiceStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */; };
 		2AF8BC932D55217C0078974B /* DSM in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF8BC922D55217C0078974B /* DSM */; };
 		3AC597562BF4D05C0092606C /* iOSDashboardAssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */; };
 		3AC5975A2BF4D05D0092606C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC597592BF4D05D0092606C /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		2A5565FC2D566C2B00D2E64B /* JobStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsView.swift; sourceTree = "<group>"; };
 		2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsViewModel.swift; sourceTree = "<group>"; };
 		2A5566022D5674B300D2E64B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsView.swift; sourceTree = "<group>"; };
+		2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsViewModel.swift; sourceTree = "<group>"; };
 		2AF8BC912D5521080078974B /* DSM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DSM; sourceTree = "<group>"; };
 		3AC597522BF4D05C0092606C /* iOSDashboardAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDashboardAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDashboardAssessmentApp.swift; sourceTree = "<group>"; };
@@ -51,8 +55,9 @@
 		2A5565FE2D566C3C00D2E64B /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				2A5566022D5674B300D2E64B /* DashboardView.swift */,
 				2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */,
+				2A5566022D5674B300D2E64B /* DashboardView.swift */,
+				2AD64E252D57351F00C8E484 /* InvoiceStats */,
 				2A5566012D56749C00D2E64B /* JobStats */,
 			);
 			path = Dashboard;
@@ -65,6 +70,15 @@
 				2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */,
 			);
 			path = JobStats;
+			sourceTree = "<group>";
+		};
+		2AD64E252D57351F00C8E484 /* InvoiceStats */ = {
+			isa = PBXGroup;
+			children = (
+				2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */,
+				2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */,
+			);
+			path = InvoiceStats;
 			sourceTree = "<group>";
 		};
 		3AC597492BF4D05C0092606C = {
@@ -190,7 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD64E272D57353800C8E484 /* InvoiceStatsView.swift in Sources */,
 				2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */,
+				2AD64E292D57355600C8E484 /* InvoiceStatsViewModel.swift in Sources */,
 				2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */,
 				2A5565F92D56698600D2E64B /* DashboardRepository.swift in Sources */,
 				2A5565FB2D566A8700D2E64B /* DashboardViewModel.swift in Sources */,

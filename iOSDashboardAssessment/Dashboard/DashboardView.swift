@@ -26,11 +26,19 @@ struct DashboardView: View {
                     jobs: viewModel.jobsList
                 )
             )
+            .padding(20)
+            
+            InvoiceStatsView(
+                InvoiceStatsViewModel(
+                    invoices: viewModel.invoicesList
+                )
+            )
             .padding(.horizontal,20)
+            
         }
         .onAppear{
             Task{
-                await viewModel.getJobsList()
+                await viewModel.fetchDashboardData()
             }
         }
     }

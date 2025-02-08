@@ -27,46 +27,25 @@ class JobStatsViewModel{
     func getStats() -> [ProgressItem]  {
         let statsWithPercentage = JobStatus.allCases.map { jobStatus in
             
-            var numberOfJobsInCurrentStatus = 0
-            
-            self.jobs.map { job in
-                if jobStatus == job.status {
-                    numberOfJobsInCurrentStatus += 1
-                }
-                
-            }
+            let numberOfJobsInCurrentStatus = self.jobs.filter { $0.status == jobStatus }.count
             
             let jobPercentage: CGFloat = self.jobs.isEmpty ? 0 : (CGFloat(numberOfJobsInCurrentStatus) / CGFloat(self.jobs.count)) * 100
-
+            
             return ProgressItem(color: jobStatus.color, percentage: CGFloat(jobPercentage))
         }
         
-        return statsWithPercentage
+        return statsWithPercentage.sorted {$0.percentage > $1.percentage }
     }
     
     func getStatsInfo() -> [ChartInfoItem] {
         let statsWithCount = JobStatus.allCases.map { jobStatus in
+                        
+            let numberOfJobsInCurrentStatus = self.jobs.filter { $0.status == jobStatus }.count
             
-            var numberOfJobsInCurrentStatus = 0
-            
-            self.jobs.map { job in
-                if jobStatus == job.status {
-                    numberOfJobsInCurrentStatus += 1
-                }
-                
-            }
-
-            
-            print(jobStatus)
-            
-            print(numberOfJobsInCurrentStatus)
-            
-            print()
-
             return ChartInfoItem(
                 color: jobStatus.color,
                 status: jobStatus.rawValue,
-                count: numberOfJobsInCurrentStatus
+                additionalInfo: "\(numberOfJobsInCurrentStatus)"
             )
         }
         

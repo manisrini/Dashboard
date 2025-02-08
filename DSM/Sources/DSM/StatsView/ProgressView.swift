@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ProgressItem : Hashable {
     let color : Color
-    let percentage : CGFloat
+    public let percentage : CGFloat
     
     public init(color: Color, percentage: CGFloat) {
         self.color = color
@@ -21,10 +21,12 @@ public struct ProgressChartView: View {
     
     let stats : [ProgressItem]
     let totalWidth : CGFloat
+    let height : CGFloat
     
-    public init(stats: [ProgressItem],totalWidth : CGFloat) {
+    public init(stats: [ProgressItem],totalWidth : CGFloat,height : CGFloat = 20) {
         self.stats = stats
         self.totalWidth = totalWidth
+        self.height = height
     }
     
     public var body: some View {
@@ -34,7 +36,7 @@ public struct ProgressChartView: View {
                 stat.color
                     .frame(width: totalWidth * stat.percentage / 100)
             }
-            .frame(height: 20)
+            .frame(height: height)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }

@@ -11,12 +11,12 @@ public struct ChartInfoItem : Hashable{
     let id = UUID()
     let color : Color
     let status : String
-    let count : Int
+    let additionalInfo : String
     
-    public init(color: Color, status: String, count: Int) {
+    public init(color: Color, status: String, additionalInfo: String) {
         self.color = color
         self.status = status
-        self.count = count
+        self.additionalInfo = additionalInfo
     }
 }
 
@@ -34,7 +34,7 @@ public struct ChartInfoView: View {
             ForEach(statData,id: \.id) { item in
                 SimpleTagView(
                     fillColor: item.color,
-                    text: "\(item.status) (\(item.count))"
+                    text: "\(item.status) (\(item.additionalInfo))"
                 )
             }
         }
@@ -42,5 +42,5 @@ public struct ChartInfoView: View {
 }
 
 #Preview {
-    ChartInfoView(statData: [.init(color: .blue, status: "Yet to start", count: 5)])
+    ChartInfoView(statData: [.init(color: .blue, status: "Yet to start", additionalInfo: "5")])
 }

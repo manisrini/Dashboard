@@ -16,6 +16,11 @@ class DashboardViewModel : ObservableObject{
         self.repository = repository
     }
     
+    func fetchDashboardData() async{
+        await self.getJobsList()
+        await self.getInvoicesList()
+    }
+    
     func getJobsList() async{
         do {
            let jobsList = try await repository.getJobsList()

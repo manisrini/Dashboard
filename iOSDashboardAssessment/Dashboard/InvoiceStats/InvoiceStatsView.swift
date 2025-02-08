@@ -1,32 +1,32 @@
 //
-//  JobStatsView.swift
+//  InvoiceStatsView.swift
 //  iOSDashboardAssessment
 //
-//  Created by Manikandan on 07/02/25.
+//  Created by Manikandan on 08/02/25.
 //
 
 import SwiftUI
 import SampleData
 import DSM
 
-struct JobStatsView: View {
+struct InvoiceStatsView: View {
     
-    let viewModel : JobStatsViewModel
+    let viewModel : InvoiceStatsViewModel
     
-    init(_ viewModel: JobStatsViewModel) {
+    init(_ viewModel: InvoiceStatsViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         VStack(alignment: .leading,spacing: 16){
-            HeaderView(text: "Job Stats")
+            HeaderView(text: "Invoice Stats")
             
             Divider()
             
             HStack{
-                Text(viewModel.getTotalJobsInfo())
+                Text(viewModel.getTotalInvoiceAmountInfo())
                 Spacer()
-                Text(viewModel.getNumberOfCompletedJobs())
+                Text(viewModel.getPaidAmountInfo())
             }
             
             GeometryReader{ reader in
@@ -40,12 +40,11 @@ struct JobStatsView: View {
 }
 
 #Preview {
-    JobStatsView(
+    InvoiceStatsView(
         .init(
-            jobs: [
-                JobApiModel(jobNumber: 1, title: "Test", startTime: "123", endTime: "456", status: .yetToStart),
-                JobApiModel(jobNumber: 2, title: "Clean Home", startTime: "123", endTime: "456", status: .yetToStart)
-
+            invoices: [
+                .init(invoiceNumber: 1, customerName: "Mani", total: 300, status: .paid),
+                .init(invoiceNumber: 2, customerName: "Mani", total: 500, status: .badDebt)
             ]
         )
     )
