@@ -10,19 +10,27 @@ import DSM
 struct GreetingModel{
     let name: String
     let image : UIImage?
-    let date : String
+    let date : Date
 }
 
 struct GreetingView : View{
     
     let model : GreetingModel
     
+    init(model: GreetingModel) {
+        self.model = model
+    }
+    
     var body : some View{
         HStack{
             VStack(alignment : .leading,spacing : 5){
-                Text(model.name)
                 
-                Text(model.date)
+                ZuperText(
+                    name: "Hello, \(model.name)",
+                    font: .Roboto(.BoldItalic, 18)
+                )
+                
+                ZuperText(name: "\(model.date)")
             }
             
             Spacer()
@@ -41,7 +49,7 @@ struct GreetingView : View{
             }
         }
         .padding()
-        .roundedBorder()
+        .roundedBorder(color: .gray)
     }
 }
 
@@ -50,7 +58,7 @@ struct GreetingView : View{
         model: .init(
             name: "Helloo,Manikandan",
             image: .init(systemName: "alarm"),
-            date: "12/12/2025"
+            date: Date()
         )
     )
 }

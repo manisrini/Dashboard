@@ -20,7 +20,6 @@ struct SimpleTagView: View {
                 .frame(width: 15,height: 15)
             
             Text(text)
-                .font(.Roboto(.Regular, size: 12))
         }
         
     }

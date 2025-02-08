@@ -10,12 +10,10 @@ import DSM
 
 @main
 struct iOSDashboardAssessmentApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            DashboardView()
-                .onAppear{
-                    FontHelper.registerFonts()
-                }
+            ContentView()
         }
     }
 }

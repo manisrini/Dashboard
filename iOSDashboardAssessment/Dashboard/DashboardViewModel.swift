@@ -11,6 +11,7 @@ class DashboardViewModel : ObservableObject{
     let repository : DashboardRepository
     @Published var jobsList : [JobApiModel] = []
     @Published var invoicesList : [InvoiceApiModel] = []
+    @Published var greetingDetails : GreetingModel = .init(name: "", image: nil, date: Date())
     
     init(repository: DashboardRepository) {
         self.repository = repository
@@ -19,6 +20,7 @@ class DashboardViewModel : ObservableObject{
     func fetchDashboardData() async{
         await self.getJobsList()
         await self.getInvoicesList()
+        await self.getUserName()
     }
     
     func getJobsList() async{
@@ -37,6 +39,23 @@ class DashboardViewModel : ObservableObject{
             let invoicesList = try await repository.getInvoicesList()
             DispatchQueue.main.async {
                 self.invoicesList = invoicesList
+            }
+
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getUserName() async {
+        do {
+            let userName = try await repository.getUserName()
+            let date = try await repository.getDate()
+            DispatchQueue.main.async {
+                self.greetingDetails = .init(
+                    name: userName,
+                    image: nil,
+                    date: date
+                )
             }
 
         } catch {

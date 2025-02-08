@@ -21,7 +21,7 @@ struct RoundedBorderViewModifier: ViewModifier {
                     .fill(fillColor ?? Color.clear)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 2)
+                            .stroke(color, lineWidth: 2)
                     }
             }
         
@@ -41,3 +41,5 @@ extension View {
         )
     }
 }
+
+

@@ -69,7 +69,7 @@ public struct CustomFont : ViewModifier{
     
 
 extension View {
-    public func customFontStyle(_ font : Fonts) -> some View{
+    func customFontStyle(_ font : Fonts) -> some View{
         modifier(CustomFont(font: font))
     }
 }

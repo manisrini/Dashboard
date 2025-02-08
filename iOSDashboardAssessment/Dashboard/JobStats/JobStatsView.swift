@@ -18,7 +18,7 @@ struct JobStatsView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading,spacing: 16){
+        VStack(alignment: .leading,spacing: 10){
             HeaderView(text: "Job Stats")
             
             Divider()

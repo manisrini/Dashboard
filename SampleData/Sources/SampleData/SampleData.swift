@@ -45,12 +45,12 @@ public class SampleData: NSObject {
         }
     }
 
-    private static func generateRandomJobTitle() -> String {
-        return "\(jobTitles.randomElement()!) \(jobNouns.randomElement()!)"
+    public static func generateRandomCustomerName() -> String {
+        return "\(firstNames.randomElement()!) \(lastNames.randomElement()!)"
     }
 
-    private static func generateRandomCustomerName() -> String {
-        return "\(firstNames.randomElement()!) \(lastNames.randomElement()!)"
+    private static func generateRandomJobTitle() -> String {
+        return "\(jobTitles.randomElement()!) \(jobNouns.randomElement()!)"
     }
 
     private static func generateRandomDate(daysFromNow range: ClosedRange<Int>) -> Date? {
