@@ -14,6 +14,7 @@
 		2A5566002D566C6700D2E64B /* JobStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */; };
 		2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5566022D5674B300D2E64B /* DashboardView.swift */; };
 		2A81AF5C2D57C892001300FB /* ProgressInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A81AF5B2D57C892001300FB /* ProgressInfoView.swift */; };
+		2A81AF9B2D57DBDB001300FB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A81AF9A2D57DBD8001300FB /* Utils.swift */; };
 		2AD64E272D57353800C8E484 /* InvoiceStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */; };
 		2AD64E292D57355600C8E484 /* InvoiceStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */; };
 		2AD64E672D575E9F00C8E484 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD64E662D575E9F00C8E484 /* ContentView.swift */; };
@@ -34,6 +35,7 @@
 		2A5565FF2D566C6100D2E64B /* JobStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatsViewModel.swift; sourceTree = "<group>"; };
 		2A5566022D5674B300D2E64B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		2A81AF5B2D57C892001300FB /* ProgressInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressInfoView.swift; sourceTree = "<group>"; };
+		2A81AF9A2D57DBD8001300FB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AD64E262D57353800C8E484 /* InvoiceStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsView.swift; sourceTree = "<group>"; };
 		2AD64E282D57355000C8E484 /* InvoiceStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceStatsViewModel.swift; sourceTree = "<group>"; };
 		2AD64E662D575E9F00C8E484 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = JobStats;
 			sourceTree = "<group>";
 		};
+		2A81AF992D57DBD4001300FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2A81AF9A2D57DBD8001300FB /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2AD64E252D57351F00C8E484 /* InvoiceStats */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		3AC597542BF4D05C0092606C /* iOSDashboardAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				2A81AF992D57DBD4001300FB /* Utils */,
 				2AD64EA42D576F9100C8E484 /* JobsList */,
 				2A5565FE2D566C3C00D2E64B /* Dashboard */,
 				3AC597552BF4D05C0092606C /* iOSDashboardAssessmentApp.swift */,
@@ -227,6 +238,7 @@
 				2AD64E272D57353800C8E484 /* InvoiceStatsView.swift in Sources */,
 				2A5565FD2D566C2B00D2E64B /* JobStatsView.swift in Sources */,
 				2AD64E292D57355600C8E484 /* InvoiceStatsViewModel.swift in Sources */,
+				2A81AF9B2D57DBDB001300FB /* Utils.swift in Sources */,
 				2A5566032D5674B300D2E64B /* DashboardView.swift in Sources */,
 				2AD64EA82D577D1600C8E484 /* JobsListViewModel.swift in Sources */,
 				2AD64EA62D576FA300C8E484 /* JobsListView.swift in Sources */,

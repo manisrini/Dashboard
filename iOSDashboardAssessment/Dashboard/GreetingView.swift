@@ -30,7 +30,8 @@ struct GreetingView : View{
                     font: .Roboto(.BoldItalic, 18)
                 )
                 
-                ZuperText(name: "\(model.date)")
+                ZuperText(name: "\(Utils.formatDate(date: model.date))")
+                    .foregroundStyle(.gray)
             }
             
             Spacer()

@@ -18,11 +18,7 @@ class JobsListViewModel : ObservableObject {
         self.jobs = jobs
         self.currentSelectedStatus = JobStatus.allCases.first ?? .yetToStart
     }
-    
-    func getNavBarTitle() -> String{
-        "Jobs (\(jobs.count))"
-    }
-    
+        
     func isJobsEmptyForSelectedStatus() -> Bool{
         return jobs.filter({$0.status == currentSelectedStatus}).isEmpty
     }
@@ -35,7 +31,14 @@ class JobsListViewModel : ObservableObject {
     func getTabs() -> [ZTab]{
         if tabs.isEmpty{
             tabs = JobStatus.allCases.map{ status in
-                return ZTab(id: UUID(), title: status.rawValue)
+                
+                let numberOfJobsInCurrentStatus = self.jobs.filter { $0.status == status }.count
+
+                return ZTab(
+                    id: UUID(),
+                    title: status.rawValue,
+                    displayValue: "\(status.rawValue) (\(numberOfJobsInCurrentStatus))"
+                )
             }
         }
         return tabs
@@ -49,4 +52,33 @@ class JobsListViewModel : ObservableObject {
             }
         }
     }
+    
+    //MARK: Helper Functions
+    func getNavBarTitle() -> String{
+        "Jobs (\(jobs.count))"
+    }
+
+    func getCardModel(for job : JobApiModel) -> CardModel{
+        
+        
+        var dateStr = ""
+        
+        if let startDateTime = SampleData.isoFormatter.date(from: job.startTime){
+            dateStr += "\(Utils.formatDate(date: startDateTime)) - "
+        }
+        
+        if let endDateTime = SampleData.isoFormatter.date(from: job.endTime){
+            dateStr += Utils.formatDate(date: endDateTime)
+        }
+        
+        return .init(
+            topLeftLabel: "#\(job.jobNumber)",
+            middleLeftLabel: job.title,
+            bottomLeftLabel: dateStr
+        )
+        
+        
+    }
+
+    
 }

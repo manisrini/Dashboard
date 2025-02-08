@@ -5,7 +5,7 @@ import Foundation
 
 public class SampleData: NSObject {
 
-    private static let isoFormatter: DateFormatter = {
+    public static let isoFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         formatter.timeZone = TimeZone(abbreviation: "UTC")

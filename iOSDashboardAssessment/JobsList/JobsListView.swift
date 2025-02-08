@@ -30,7 +30,7 @@ struct JobsListView: View {
                         showHeader: false
                     )
                 )
-                    .padding()
+                .padding()
                 
                 ZuperTabView(tabs: viewModel.getTabs(), selectedIndex: $selectedTabIndex) { prevSelectedIndex, currentSelectedIndex in
                     if prevSelectedIndex != currentSelectedIndex{
@@ -47,11 +47,7 @@ struct JobsListView: View {
                     ScrollView {
                         LazyVStack(alignment: .leading) {
                             ForEach(viewModel.getJobsForSelectedStatus(),id: \.id) { job in
-                                Card(
-                                    topLeftLabel: "#\(job.jobNumber)",
-                                    middleLeftLabel: job.title,
-                                    bottomLeftLabel: "\(job.startTime) - \(job.endTime)"
-                                )
+                                Card(for: viewModel.getCardModel(for: job))
                                 .roundedBorder(color: .gray)
                                 .padding(.horizontal,10)
                                 .padding(.vertical,5)
