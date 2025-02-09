@@ -16,6 +16,7 @@ struct NavBarViewModifier : ViewModifier{
             .toolbar{
                 ToolbarItem(placement : .topBarLeading) {
                     ZuperText(name : title,font: .Roboto(.Bold, 20))
+                        .foregroundStyle(Color(DSMColors.dark_blue))
                 }
             }
             .toolbarBackground(Color.white, for: .navigationBar)

@@ -43,6 +43,7 @@ public struct ProgressChartView: View {
                         view.overlay{
                             RoundedRectangle(cornerRadius: 3)
                                 .stroke(Color(DSMColors.dark_blue), lineWidth: 3)
+                                .shadow(color: Color(DSMColors.dark_blue),radius: 1)
                         }
                     }
             }
@@ -50,13 +51,6 @@ public struct ProgressChartView: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
-    
-    private func startAnimation() {
-        withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
-            progress = 1  // Move line across the border
-        }
-    }
-
 }
 
 

@@ -27,7 +27,7 @@ struct GreetingView : View{
             VStack(alignment : .leading,spacing : 5){
                 
                 ZuperText(
-                    name: "Hello, \(model.name)",
+                    name: "Hello, \(model.name)! 👋",
                     font: .Roboto(.Bold, 18)
                 )
                 

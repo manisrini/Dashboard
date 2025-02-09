@@ -66,6 +66,7 @@
 		2A5565FE2D566C3C00D2E64B /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				2A5565F82D56698600D2E64B /* DashboardRepository.swift */,
 				2A5565FA2D566A8200D2E64B /* DashboardViewModel.swift */,
 				2A5566022D5674B300D2E64B /* DashboardView.swift */,
 				2A34EC782D54DE1500E8119F /* GreetingView.swift */,
@@ -132,7 +133,6 @@
 				2AD64E662D575E9F00C8E484 /* ContentView.swift */,
 				3AC597592BF4D05D0092606C /* Assets.xcassets */,
 				3AC5975B2BF4D05D0092606C /* Preview Content */,
-				2A5565F82D56698600D2E64B /* DashboardRepository.swift */,
 			);
 			path = iOSDashboardAssessment;
 			sourceTree = "<group>";

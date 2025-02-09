@@ -69,7 +69,9 @@ struct JobsListView: View {
                                 }
                             }
                             .onChange(of: selectedTabIndex) { newValue in
-                                scrollViewProxy.scrollTo("scroll-to-top-view",anchor: .top)
+                                withAnimation {
+                                    scrollViewProxy.scrollTo("scroll-to-top-view",anchor: .top)
+                                }
                             }
                             .refreshable {
                                 viewModel.refreshList()

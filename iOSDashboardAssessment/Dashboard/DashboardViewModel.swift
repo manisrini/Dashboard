@@ -48,17 +48,10 @@ class DashboardViewModel : ObservableObject{
     
     func getUserDetails() async {
         do {
-            let userName = try await repository.getUserName()
-            let date = try await repository.getDate()
-            let profileUrl = try await repository.getProfileUrl()
+            let userDetails = try await repository.getUserDetails()
             DispatchQueue.main.async {
-                self.greetingDetails = GreetingModel(
-                    name: "\(userName)!👋",
-                    imageUrl: profileUrl,
-                    date: date
-                )
+                self.greetingDetails = userDetails
             }
-
         } catch {
             print(error.localizedDescription)
         }

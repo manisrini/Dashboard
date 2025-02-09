@@ -43,24 +43,34 @@ public struct ZuperTabView: View {
                 .frame(height: 60)
                 .foregroundStyle(.white)
                 .overlay {
-                    ScrollView(.horizontal,showsIndicators: false){
-                        HStack(spacing : 0){
-                            ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
-                                Button {
-                                    self.didSelectTab?(selectedIndex,index)
-                                    withAnimation {
-                                        selectedIndex = index
+                    ScrollViewReader { reader in
+                        ScrollView(.horizontal,showsIndicators: false){
+                            HStack(spacing : 0){
+                                ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
+                                    Button {
+                                        self.didSelectTab?(selectedIndex,index)
+                                        withAnimation {
+                                            selectedIndex = index
+                                        }
+                                        withAnimation {
+                                            reader.scrollTo(index, anchor: .leading)
+                                        }
+                                    } label: {
+                                        TabItem(tab: tab, isSelected: selectedIndex == index)
+                                            .id(index)
                                     }
-                                } label: {
-                                    TabItem(tab: tab, isSelected: selectedIndex == index)
                                 }
                             }
+                            .padding(.leading,5)
                         }
-                        .padding(.leading,5)
+                        .onChange(of: selectedIndex) { newIndex in
+                            withAnimation {
+                                reader.scrollTo(newIndex, anchor: .leading)
+                            }
+                        }
                     }
                 }
         }
-        
     }
 }
 
