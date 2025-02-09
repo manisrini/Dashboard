@@ -4,7 +4,7 @@
 import Foundation
 
 public class SampleData: NSObject {
-
+    
     public static let isoFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -19,11 +19,12 @@ public class SampleData: NSObject {
     private static let lastNames = ["Doe", "Smith", "Johnson", "Brown", "Lee"]
     
     private static let profileUrls = [
-        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
-        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
-        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
-        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
-        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg"
+        
+        "https://images.unsplash.com/photo-1624670760266-0ddc7639b3a4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1574774191469-3d7732e5fc8b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1578410170179-bb10594ed395?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1624391673156-a7b7f6c5fb12?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
 
     public static func generateRandomJobList(size: Int) -> [JobApiModel] {

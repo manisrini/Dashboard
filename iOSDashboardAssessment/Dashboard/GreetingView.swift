@@ -44,9 +44,10 @@ struct GreetingView : View{
                 AsyncImage(url: url) { image in
                     image
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 40,height: 40)
+                        .scaledToFill()
+                        .frame(width: 45,height: 45)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .roundedBorder()
                 } placeholder: {
                     ProgressView()
                 }

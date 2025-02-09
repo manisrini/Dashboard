@@ -29,7 +29,7 @@ struct RoundedBorderViewModifier: ViewModifier {
 }
 
 extension View {
-    public func roundedBorder(lineWidth : CGFloat = 1, color : Color = Color(DSMColors.black), radius : CGFloat = 5, fillColor : Color = .clear) -> some View {
+    public func roundedBorder(lineWidth : CGFloat = 1, color : Color = Color(DSMColors.light_black), radius : CGFloat = 5, fillColor : Color = .clear) -> some View {
     
         self.modifier(
             RoundedBorderViewModifier(

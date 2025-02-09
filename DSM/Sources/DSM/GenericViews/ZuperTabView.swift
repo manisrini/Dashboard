@@ -51,8 +51,6 @@ public struct ZuperTabView: View {
                                         self.didSelectTab?(selectedIndex,index)
                                         withAnimation {
                                             selectedIndex = index
-                                        }
-                                        withAnimation {
                                             reader.scrollTo(index, anchor: .leading)
                                         }
                                     } label: {
