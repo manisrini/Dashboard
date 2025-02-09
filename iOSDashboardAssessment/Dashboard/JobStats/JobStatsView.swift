@@ -22,7 +22,8 @@ struct JobStatsView: View {
             
             if viewModel.showHeader{
                 HeaderView(text: "Job Stats")
-                
+                    .padding(.horizontal,10)
+
                 Divider()
             }
             
@@ -30,16 +31,22 @@ struct JobStatsView: View {
                 leftLabel: viewModel.getTotalJobsInfo(),
                 rightLabel: viewModel.getNumberOfCompletedJobs()
             )
+            .padding(.horizontal,10)
+
             
             GeometryReader{ reader in
                 ProgressChartView(stats: viewModel.getStats(), totalWidth: reader.size.width)
             }
             .frame(height: 20)
-            
+            .padding(.horizontal,10)
+
             if viewModel.showStatsInfo{
                 ChartInfoView(statData: viewModel.getStatsInfo())
+                        .padding(.horizontal,15)
+                        .padding(.top,10)
             }
         }
+        .padding(.vertical,15)
     }
 }
 

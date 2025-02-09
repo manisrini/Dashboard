@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUICore
+import DSM
 
 public struct JobApiModel {
     public let id = UUID()
@@ -34,11 +35,11 @@ public enum JobStatus: String,CaseIterable{
     
     public var color: Color {
         switch self {
-        case .yetToStart: return .purple
-        case .inProgress: return .blue
-        case .cancelled: return .yellow
-        case .completed: return .green
-        case .incomplete: return .red
+        case .yetToStart: return Color(DSMColors.light_purple)
+        case .inProgress: return Color(DSMColors.light_blue)
+        case .cancelled: return Color(DSMColors.yellow)
+        case .completed: return Color(DSMColors.light_green)
+        case .incomplete: return Color(DSMColors.light_red)
         }
     }
 }

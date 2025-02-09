@@ -27,35 +27,40 @@ public struct ZuperTabView: View {
     var tabs : [ZTab] = []
     @Binding var selectedIndex : Int
     var didSelectTab : ((prevSelectedTabIndex,selectedTabIndex)->())?
-
+    
     public init(tabs: [ZTab], selectedIndex: Binding<Int>, didSelectTab: ((prevSelectedTabIndex, selectedTabIndex) -> Void)?) {
         self.tabs = tabs
         self._selectedIndex  = selectedIndex
         self.didSelectTab = didSelectTab
     }
-
+    
     public var body: some View {
         
-        Rectangle()
-            .frame(height: 60)
-            .foregroundStyle(.gray)
-            .overlay {
-                ScrollView(.horizontal,showsIndicators: false){
-                    HStack{
-                        ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
-                            Button {
-                                self.didSelectTab?(selectedIndex,index)
-                                withAnimation {
-                                    selectedIndex = index
+        VStack(spacing : 2){
+            Divider()
+            
+            Rectangle()
+                .frame(height: 60)
+                .foregroundStyle(.white)
+                .overlay {
+                    ScrollView(.horizontal,showsIndicators: false){
+                        HStack(spacing : 0){
+                            ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
+                                Button {
+                                    self.didSelectTab?(selectedIndex,index)
+                                    withAnimation {
+                                        selectedIndex = index
+                                    }
+                                } label: {
+                                    TabItem(tab: tab, isSelected: selectedIndex == index)
                                 }
-                            } label: {
-                                TabItem(tab: tab, isSelected: selectedIndex == index)
                             }
                         }
+                        .padding(.leading,5)
                     }
-                    .padding(.leading,5)
                 }
-            }
+        }
+        
     }
 }
 
@@ -71,17 +76,21 @@ struct TabItem : View {
     var body: some View{
         VStack(spacing: 10){
             ZuperText(name: tab.displayValue,font: .Roboto(.Bold, 16))
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color(isSelected ? DSMColors.black : DSMColors.gray))
                 .padding(.horizontal,16)
+
             
             if isSelected{
                 Rectangle()
                     .frame(height: 3)
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(Color(DSMColors.purple))
             }else{
                 Rectangle()
                     .frame(height: 3)
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(Color.white)
+                    .overlay {
+                        Divider()
+                    }
             }
         }
     }
@@ -90,9 +99,9 @@ struct TabItem : View {
 
 #Preview {
     ZuperTabView(
-        tabs: [.init(id: UUID(uuidString: "1"), title: "Test"),
-               .init(id: UUID(uuidString: "2"), title: "Hello"),
-               .init(id: UUID(uuidString: "3"), title: "Done")
+        tabs: [.init(id: UUID(uuidString: "1"), title: "Test",displayValue: "Test "),
+               .init(id: UUID(uuidString: "2"), title: "Hello",displayValue: "Test 2"),
+               .init(id: UUID(uuidString: "3"), title: "Done", displayValue: "Test 3")
         ],
         selectedIndex: .constant(
             0

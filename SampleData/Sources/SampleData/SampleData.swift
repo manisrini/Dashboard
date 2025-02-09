@@ -17,6 +17,14 @@ public class SampleData: NSObject {
     
     private static let firstNames = ["John", "Jane", "Alice", "Bob", "Eva"]
     private static let lastNames = ["Doe", "Smith", "Johnson", "Brown", "Lee"]
+    
+    private static let profileUrls = [
+        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
+        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
+        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
+        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
+        "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg"
+    ]
 
     public static func generateRandomJobList(size: Int) -> [JobApiModel] {
         return (1...size).compactMap { index in
@@ -55,5 +63,9 @@ public class SampleData: NSObject {
 
     private static func generateRandomDate(daysFromNow range: ClosedRange<Int>) -> Date? {
         return Calendar.current.date(byAdding: .day, value: Int.random(in: range), to: Date())
+    }
+    
+    public static func generateRandomProfileUrl() -> String{
+        profileUrls.randomElement()!
     }
 }

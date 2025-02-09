@@ -6,10 +6,11 @@
 //
 import SwiftUI
 import DSM
+import Utils
 
 struct GreetingModel{
     let name: String
-    let image : UIImage?
+    let imageUrl : String
     let date : Date
 }
 
@@ -27,30 +28,32 @@ struct GreetingView : View{
                 
                 ZuperText(
                     name: "Hello, \(model.name)",
-                    font: .Roboto(.BoldItalic, 18)
+                    font: .Roboto(.Bold, 18)
                 )
                 
-                ZuperText(name: "\(Utils.formatDate(date: model.date))")
-                    .foregroundStyle(.gray)
+                ZuperText(
+                    name: "\(Utils.formatDateWithOrdinalSuffix(date: model.date))",
+                    font: .Roboto(.Bold, 14)
+                )
+                .foregroundStyle(Color(DSMColors.secondary_gray))
             }
             
             Spacer()
             
-            if let image = model.image {
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray)
-                    .overlay {
-                        Image(uiImage: image)
-                            .resizable()
-                            .frame(width: 40,height: 40)
-                    }
-                    .frame(width: 50,height: 50)
-                
+            if let url =  URL(string: model.imageUrl){
+                AsyncImage(url: url) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40,height: 40)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                } placeholder: {
+                    ProgressView()
+                }
             }
         }
         .padding()
-        .roundedBorder(color: .gray)
+        .roundedBorder(color: Color(DSMColors.light_gray),radius: 2)
     }
 }
 
@@ -58,7 +61,7 @@ struct GreetingView : View{
     GreetingView(
         model: .init(
             name: "Helloo,Manikandan",
-            image: .init(systemName: "alarm"),
+            imageUrl: "https://sample-videos.com/img/Sample-jpg-image-500kb.jpg",
             date: Date()
         )
     )

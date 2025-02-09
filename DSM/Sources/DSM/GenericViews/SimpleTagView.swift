@@ -20,7 +20,7 @@ struct SimpleTagView: View {
                 .frame(width: 15,height: 15)
             
             ZuperText(name : text, font: .Roboto(.Bold, 14))
-                .foregroundStyle(.gray)
+                .foregroundStyle(Color(DSMColors.secondary_gray))
         }
         
     }

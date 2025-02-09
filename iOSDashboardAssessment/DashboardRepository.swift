@@ -13,12 +13,13 @@ protocol DashboardRepository {
     func getInvoicesList() async throws -> [InvoiceApiModel]
     func getUserName() async throws -> String
     func getDate() async throws -> Date
+    func getProfileUrl() async throws -> String
 }
 
 class InMemoryDashboardRepository : DashboardRepository{
     
     func getJobsList() async throws -> [JobApiModel] {
-        return SampleData.generateRandomJobList(size: 40)
+        return SampleData.generateRandomJobList(size: 100)
     }
     
     func getInvoicesList() async throws -> [InvoiceApiModel] {
@@ -31,6 +32,10 @@ class InMemoryDashboardRepository : DashboardRepository{
     
     func getDate() async throws -> Date {
         return Date()  //Return today's date
+    }
+
+    func getProfileUrl() async throws -> String {
+        return SampleData.generateRandomProfileUrl()
     }
 
 }

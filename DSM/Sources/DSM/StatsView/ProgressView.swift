@@ -24,7 +24,8 @@ public struct ProgressChartView: View {
     let stats : [ProgressItem]
     let totalWidth : CGFloat
     let height : CGFloat
-    
+    @State private var progress: CGFloat = 0  // Track the animation progress
+
     public init(stats: [ProgressItem],totalWidth : CGFloat,height : CGFloat = 20) {
         self.stats = stats
         self.totalWidth = totalWidth
@@ -35,37 +36,30 @@ public struct ProgressChartView: View {
         
         HStack(spacing: 0){
             ForEach(stats, id: \.self) { stat in
-                stat.color
+                    stat.color
                     .frame(width: totalWidth * stat.percentage / 100)
-//                    .overlay(
-//                        stat.isHighlighted ?
-//                        LinearGradient(
-//                            gradient: Gradient(colors: [
-//                                Color.white.opacity(0.6),
-//                                Color.clear,
-//                                Color.black.opacity(0.4)
-//                            ]),
-//                            startPoint: .topLeading,
-//                            endPoint: .bottomTrailing
-//                        ) : nil
-//                    )
-                    .shadow(color: stat.isHighlighted ? Color.black.opacity(0.5) : Color.clear, radius: 2, x: 4, y: 4)
-                    .shadow(color: stat.isHighlighted ? Color.white.opacity(0.3) : Color.clear, radius: 2, x: -4, y: -4)
-                    .overlay(
-                        stat.isHighlighted ?
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color.white.opacity(0.4), lineWidth: 2)
-                            .blur(radius: 1)
-                        : nil
-                    )
-                    .scaleEffect(stat.isHighlighted ? 1 : 1.0) // Slightly enlarges without moving
-                    .brightness(stat.isHighlighted ? 0.1 : 0) // Enhances pop effect
+                    .frame(maxWidth: .infinity)
+                    .if(stat.isHighlighted) { view in
+                        view.overlay{
+                            RoundedRectangle(cornerRadius: 3)
+                                .stroke(Color(DSMColors.dark_blue), lineWidth: 3)
+                        }
+                    }
             }
             .frame(height: height)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
+    
+    private func startAnimation() {
+        withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
+            progress = 1  // Move line across the border
+        }
+    }
+
 }
+
+
 
 #Preview {
     ProgressChartView(stats: [
@@ -74,4 +68,16 @@ public struct ProgressChartView: View {
         .init(color: .green, percentage: 25),
         .init(color: .yellow, percentage: 25),
     ], totalWidth: UIScreen.main.bounds.size.width )
+}
+
+
+extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
 }

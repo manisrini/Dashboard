@@ -19,7 +19,7 @@ struct DashboardView: View {
             GeometryReader{ _ in
                 VStack(spacing : 15){
                     GreetingView(model: viewModel.greetingDetails)
-                        .padding(.top,10)
+                        .padding(10)
                     
                     Button {
                         didClickJobStats = true
@@ -29,7 +29,8 @@ struct DashboardView: View {
                                 jobs: viewModel.jobsList
                             )
                         )
-                        .padding(20)
+                        .roundedBorder(color: Color(DSMColors.light_gray),radius: 2)
+                        .padding(10)
                     }
                     .buttonStyle(.plain)
                     .navigationDestination(isPresented: $didClickJobStats) {
@@ -41,8 +42,9 @@ struct DashboardView: View {
                             invoices: viewModel.invoicesList
                         )
                     )
-                    .padding(.horizontal,20)
-                    
+                    .roundedBorder(color: Color(DSMColors.light_gray),radius: 2)
+                    .padding(10)
+
                 }
             }
             .zNavBar("Dashboard")

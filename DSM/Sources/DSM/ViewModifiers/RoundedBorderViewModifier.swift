@@ -17,19 +17,19 @@ struct RoundedBorderViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: radius)
                     .fill(fillColor ?? Color.clear)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(color, lineWidth: 2)
+                        RoundedRectangle(cornerRadius: radius)
+                            .stroke(color, lineWidth: lineWidth)
                     }
+                    .shadow(color: .black.opacity(0.3), radius: 4)
             }
-        
     }
 }
 
 extension View {
-    public func roundedBorder(lineWidth : CGFloat = 1, color : Color = .black, radius : CGFloat = 5, fillColor : Color = .clear) -> some View {
+    public func roundedBorder(lineWidth : CGFloat = 1, color : Color = Color(DSMColors.black), radius : CGFloat = 5, fillColor : Color = .clear) -> some View {
     
         self.modifier(
             RoundedBorderViewModifier(

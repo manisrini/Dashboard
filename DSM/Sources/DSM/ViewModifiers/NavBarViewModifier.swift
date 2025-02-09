@@ -25,7 +25,7 @@ struct NavBarViewModifier : ViewModifier{
                     
                     Divider()
                         .frame(height: 1)
-                        .background(Color.gray)
+                        .foregroundStyle(Color(DSMColors.secondary_gray))
                 }
                 .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .top)
             }

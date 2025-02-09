@@ -11,7 +11,7 @@ class DashboardViewModel : ObservableObject{
     let repository : DashboardRepository
     @Published var jobsList : [JobApiModel] = []
     @Published var invoicesList : [InvoiceApiModel] = []
-    @Published var greetingDetails : GreetingModel = .init(name: "", image: nil, date: Date())
+    @Published var greetingDetails : GreetingModel = .init(name: "", imageUrl: "", date: Date())
     
     init(repository: DashboardRepository) {
         self.repository = repository
@@ -20,7 +20,7 @@ class DashboardViewModel : ObservableObject{
     func fetchDashboardData() async{
         await self.getJobsList()
         await self.getInvoicesList()
-        await self.getUserName()
+        await self.getUserDetails()
     }
     
     func getJobsList() async{
@@ -46,14 +46,15 @@ class DashboardViewModel : ObservableObject{
         }
     }
     
-    func getUserName() async {
+    func getUserDetails() async {
         do {
             let userName = try await repository.getUserName()
             let date = try await repository.getDate()
+            let profileUrl = try await repository.getProfileUrl()
             DispatchQueue.main.async {
-                self.greetingDetails = .init(
-                    name: userName,
-                    image: nil,
+                self.greetingDetails = GreetingModel(
+                    name: "\(userName)!👋",
+                    imageUrl: profileUrl,
                     date: date
                 )
             }

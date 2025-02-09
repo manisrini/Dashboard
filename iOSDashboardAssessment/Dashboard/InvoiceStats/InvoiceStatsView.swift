@@ -20,21 +20,26 @@ struct InvoiceStatsView: View {
     var body: some View {
         VStack(alignment: .leading,spacing: 16){
             HeaderView(text: "Invoice Stats")
-            
+                .padding(.horizontal,10)
+
             Divider()
             
             ProgressInfoView(
                 leftLabel: viewModel.getTotalInvoiceAmountInfo(),
                 rightLabel: viewModel.getPaidAmountInfo()
             )
-           
+            .padding(.horizontal,10)
+
             GeometryReader{ reader in
                 ProgressChartView(stats: viewModel.getStats(), totalWidth: reader.size.width)
             }
             .frame(height: 20)
-            
+            .padding(.horizontal,10)
+
             ChartInfoView(statData: viewModel.getStatsInfo())
+                .padding(.horizontal,10)
         }
+        .padding(.vertical,15)
     }
 }
 

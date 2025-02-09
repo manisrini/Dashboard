@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import DSM
 
 public struct InvoiceApiModel {
     public let id = UUID()
@@ -29,10 +30,10 @@ public enum InvoiceStatus: String,CaseIterable {
     public var color : Color{
         
         switch self {
-        case .draft: return .yellow
-        case .pending: return .blue
-        case .paid: return .green
-        case .badDebt: return .red
+        case .draft: return Color(DSMColors.yellow)
+        case .pending: return Color(DSMColors.light_blue)
+        case .paid: return Color(DSMColors.light_green)
+        case .badDebt: return Color(DSMColors.light_red)
         }
     }
 }

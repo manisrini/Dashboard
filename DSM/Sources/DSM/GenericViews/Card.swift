@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Utils
 
 public struct CardModel {
     let topLeftLabel : String
@@ -29,17 +29,19 @@ public struct Card : View{
     }
     
     public var body: some View{
-        VStack(alignment : .leading,spacing: 10){
+        VStack(alignment : .leading,spacing: 3){
             ZuperText(name: model.topLeftLabel,font: .Roboto(.Medium, 14))
-                .foregroundStyle(.gray)
+                .foregroundStyle(Color(DSMColors.secondary_gray))
             
             if let middleLeftLabel = model.middleLeftLabel{
                 ZuperText(name: middleLeftLabel,font: .Roboto(.Bold, 16))
+                    .foregroundStyle(Color(DSMColors.dark_blue))
+                    .padding(.top,5)
             }
             
             if let bottomLeftLabel = model.bottomLeftLabel{
                 ZuperText(name: bottomLeftLabel,font: .Roboto(.Medium, 14))
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(Color(DSMColors.secondary_gray))
             }
         }
         .padding()

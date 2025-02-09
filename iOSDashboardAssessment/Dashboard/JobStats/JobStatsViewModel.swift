@@ -12,11 +12,13 @@ class JobStatsViewModel{
     let jobs : [JobApiModel]
     let showStatsInfo : Bool
     let showHeader : Bool
+    let selectedIndex : Int?
     
-    init(jobs: [JobApiModel], showStatsInfo : Bool = true, showHeader : Bool = true) {
+    init(jobs: [JobApiModel], showStatsInfo : Bool = true, showHeader : Bool = true,selectedIndex : Int? = nil) {
         self.jobs = jobs
         self.showStatsInfo = showStatsInfo
         self.showHeader = showHeader
+        self.selectedIndex = selectedIndex
     }
     
     func getTotalJobsInfo() -> String{
@@ -29,13 +31,18 @@ class JobStatsViewModel{
     }
     
     func getStats() -> [ProgressItem]  {
-        let statsWithPercentage = JobStatus.allCases.map { jobStatus in
+        let statsWithPercentage = JobStatus.allCases.enumerated().map { index, jobStatus in
             
             let numberOfJobsInCurrentStatus = self.jobs.filter { $0.status == jobStatus }.count
             
             let jobPercentage: CGFloat = self.jobs.isEmpty ? 0 : (CGFloat(numberOfJobsInCurrentStatus) / CGFloat(self.jobs.count)) * 100
-            
-            return ProgressItem(color: jobStatus.color, percentage: CGFloat(jobPercentage))
+
+            var isHighLighted = false
+
+            if let selectedIndex = selectedIndex{
+                isHighLighted = selectedIndex == index ? true : false
+            }
+            return ProgressItem(color: jobStatus.color, percentage: CGFloat(jobPercentage),isHighlighted: isHighLighted)
         }
         
         return statsWithPercentage.sorted {$0.percentage > $1.percentage }

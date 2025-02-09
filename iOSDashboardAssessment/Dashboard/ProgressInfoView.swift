@@ -19,7 +19,7 @@ struct ProgressInfoView: View {
                 name : leftLabel,
                 font: .Roboto(.Bold, 14)
             )
-            .foregroundStyle(.gray)
+            .foregroundStyle(Color(DSMColors.secondary_gray))
 
             Spacer()
             
@@ -27,7 +27,7 @@ struct ProgressInfoView: View {
                 name : rightLabel,
                 font: .Roboto(.Bold, 14)
             )
-            .foregroundStyle(.gray)
+            .foregroundStyle(Color(DSMColors.secondary_gray))
         }
         
 
